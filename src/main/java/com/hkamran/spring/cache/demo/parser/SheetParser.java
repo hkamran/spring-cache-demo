@@ -1,7 +1,7 @@
 package com.hkamran.spring.cache.demo.parser;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
@@ -13,7 +13,8 @@ import com.hkamran.spring.cache.demo.models.Sheet;
 @Component
 public class SheetParser {
 	
-	@Resource(name=Main.PARSE_CACHE_MANAGER)
+	@Autowired
+	@Qualifier(Main.PARSE_CACHE_MANAGER)
 	private CacheManager cacheManager;
 	
 	//https://docs.spring.io/spring/docs/3.2.x/spring-framework-reference/html/cache.html#cache-spel-context
